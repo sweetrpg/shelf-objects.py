@@ -1,0 +1,33 @@
+name: Debug
+
+on: [workflow_dispatch]
+
+jobs:
+    debug:
+        name: Debug context
+        runs-on: ubuntu-latest
+        steps:
+            - name: GitHub context
+              run: echo "$GITHUB_CONTEXT"
+              env:
+                GITHUB_CONTEXT: ${{ toJson(github) }}
+            - name: Job context
+              run: echo "$JOB_CONTEXT"
+              env:
+                JOB_CONTEXT: ${{ toJson(job) }}
+            - name: Steps context
+              run: echo "$STEPS_CONTEXT"
+              env:
+                STEPS_CONTEXT: ${{ toJson(steps) }}
+            - name: Runner context
+              run: echo "$RUNNER_CONTEXT"
+              env:
+                RUNNER_CONTEXT: ${{ toJson(runner) }}
+            - name: Strategy context
+              run: echo "$STRATEGY_CONTEXT"
+              env:
+                STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+            - name: Matrix context
+              run: echo "$MATRIX_CONTEXT"
+              env:
+                MATRIX_CONTEXT: ${{ toJson(matrix) }}
