@@ -5,9 +5,9 @@ working in this repository.
 
 ## About This Project
 
-`shelf-objects.py` defines the persistence models and API value objects for the Shelf microservice's domain: library, wishlist, table, visibility.
+`game-room-objects.py` defines the persistence models and API value objects for the Game Room microservice's domain: library, wishlist, table, visibility.
 
-Currently a scaffold; no implementation yet since shelf-api is migrating to Go. This repo mirrors the structure of other language implementations under the `foundational/shelf-objects` umbrella in `sweetrpg/platform` (Go, Rust, Swift) — keep behavior consistent with those where the concept overlaps, but don't assume identical APIs; each follows its language's own conventions.
+Currently a scaffold; no implementation yet since game-room-api is migrating to Go. This repo mirrors the structure of other language implementations under the `foundational/game-room-objects` umbrella in `sweetrpg/platform` (Go, Rust, Swift) — keep behavior consistent with those where the concept overlaps, but don't assume identical APIs; each follows its language's own conventions.
 
 ## Committing Code
 
