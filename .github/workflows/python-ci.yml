@@ -13,6 +13,8 @@ on:
             - tox.ini
             - "requirements/*.txt"
             - ".github/workflows/**"
+    pull_request:
+        branches: [develop, master]
     workflow_dispatch:
     repository_dispatch:
         types:
@@ -95,6 +97,7 @@ jobs:
 
     publish:
         needs: [tests]
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         concurrency: publish
         permissions:
