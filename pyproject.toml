@@ -1,11 +1,3 @@
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
-
-[tool.semantic_release]
-version_variables = ["src/sweetrpg_game_room_objects/__init__.py:__version__"]
-build_command = "pip install build && python -m build"
-
-[tool.semantic_release.branches.main]
-match = "develop"
-prerelease = false
