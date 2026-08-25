@@ -1,0 +1,4 @@
+-r tests.txt
+tox>=4.0,<5
+detox>=1.0,<2
+coverage-badge>=1.1,<2
