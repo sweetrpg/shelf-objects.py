@@ -113,7 +113,7 @@ jobs:
               with:
                   python-version: "3.12"
             - name: install-semantic-release
-              run: pip install python-semantic-release build
+              run: pip install python-semantic-release build "GitPython<3.1.60"
             - name: release
               id: release
               run: |
