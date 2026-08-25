@@ -10,6 +10,7 @@ on:
             - "tests/**"
             - setup.cfg
             - setup.py
+            - pyproject.toml
             - tox.ini
             - "requirements/*.txt"
             - ".github/workflows/**"
@@ -102,14 +103,19 @@ jobs:
         concurrency: publish
         permissions:
             id-token: write
+            contents: write
         steps:
             - uses: actions/checkout@v6
               with:
                 fetch-depth: 0
-            - name: publish
-              uses: relekang/python-semantic-release@v7.34.6
+            - name: release
+              id: release
+              uses: python-semantic-release/python-semantic-release@v10.6.1
               with:
-                additional_options: "--patch"
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                repository_username: __token__
-                repository_password: ${{ secrets.PYPI_TOKEN }}
+            - name: publish to PyPI
+              if: steps.release.outputs.released == 'true'
+              uses: pypa/gh-action-pypi-publish@release/v1
+              with:
+                user: __token__
+                password: ${{ secrets.PYPI_TOKEN }}
